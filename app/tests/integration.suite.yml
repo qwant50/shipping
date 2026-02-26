@@ -1,0 +1,10 @@
+actor: IntegrationTester
+
+modules:
+  enabled:
+    - \Helper\Integration
+    - Asserts
+    - Yii2:
+        configFile: '../config/codeception-local.php'
+        transaction: true
+        cleanup: true

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
+    CREATE ROLE $APP_DB_USER WITH LOGIN PASSWORD '$APP_DB_PASSWORD';
+    CREATE DATABASE $APP_DB;
+    GRANT ALL PRIVILEGES ON DATABASE $APP_DB TO $APP_DB_USER;
+EOSQL
+
+# Create database for integration tests if name is specified
+if [ -n $APP_TEST_DB ]; then
+  psql -v ON_ERROR_STOP=1 --username $POSTGRES_USER --dbname $POSTGRES_DB <<-EOSQL
+      CREATE DATABASE $APP_TEST_DB;
+      GRANT ALL PRIVILEGES ON DATABASE $APP_TEST_DB TO $APP_DB_USER;
+EOSQL
+fi

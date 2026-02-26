@@ -1,0 +1,13 @@
+paths:
+  tests: .
+  output: _output
+  data: _data
+  support: _support
+
+bootstrap: _bootstrap.php
+
+actor_suffix: Tester
+
+extensions:
+  enabled:
+    - Codeception\Extension\RunFailed

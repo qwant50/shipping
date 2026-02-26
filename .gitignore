@@ -1,0 +1,17 @@
+/.idea/
+
+/.env
+/docker-compose.override.yml
+
+
+.DS_Store
+yii_test.bat
+
+/logs/
+
+
+/app/thgyii2/vendor/
+/app/thgyii2/runtime/
+/app/thgyii2/web/assets/
+
+/app/thgyii2/tests/_output/

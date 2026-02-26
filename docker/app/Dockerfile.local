@@ -1,0 +1,33 @@
+FROM yiisoftware/yii2-php:8.5-fpm
+
+ARG APP_ENV
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends cron supervisor \
+    && rm -rf /var/lib/apt/lists/*
+
+# install local libs
+RUN docker-php-ext-enable xdebug
+
+
+# setup supervisor
+COPY ./config/supervisor/supervisord.conf /etc/supervisor/supervisord.conf
+COPY ./config/supervisor/programs.conf /etc/supervisor/conf.d/
+
+# setup php
+COPY ./config/php/php.ini.local /usr/local/etc/php/conf.d/php.ini
+RUN mkdir -p /var/lib/php/session && chmod 777 /var/lib/php/session
+
+# setup cron
+COPY ./config/cron/crontab.$APP_ENV /etc/cron.d/crontab
+RUN crontab /etc/cron.d/crontab
+
+# setup init scripts
+COPY ./init.sh /
+RUN chmod +x /init.sh
+
+WORKDIR /app/
+
+ENTRYPOINT ["/init.sh"]
+
+CMD ["/usr/bin/supervisord"]
