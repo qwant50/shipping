@@ -1,8 +1,8 @@
 <?php
 
-namespace app\application\commands;
+namespace app\infrastructure\cli\commands;
 
-use app\infrastructure\repository\GuestRepository;
+use app\infrastructure\doctrine\repository\GuestRepository;
 use yii\base\Module;
 use yii\console\ExitCode;
 

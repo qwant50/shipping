@@ -1,6 +1,6 @@
 <?php
 
-namespace app\application\controllers;
+namespace app\infrastructure\http\controllers;
 
 use app\models\ContactForm;
 use app\models\LoginForm;

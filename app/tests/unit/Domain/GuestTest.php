@@ -2,9 +2,9 @@
 
 namespace app\tests\unit\Domain;
 
-use app\infrastructure\dataMapper\GuestAccountMapper;
-use app\infrastructure\dataMapper\GuestBookingMapper;
-use app\infrastructure\dataMapper\GuestMapper;
+use app\infrastructure\doctrine\dataMapper\GuestAccountMapper;
+use app\infrastructure\doctrine\dataMapper\GuestBookingMapper;
+use app\infrastructure\doctrine\dataMapper\GuestMapper;
 
 class GuestTest extends \PHPUnit\Framework\TestCase
 {

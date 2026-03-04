@@ -1,6 +1,6 @@
 <?php
 
-namespace app\infrastructure\dataMapper;
+namespace app\infrastructure\doctrine\dataMapper;
 
 use app\domain\entity\Guest;
 use app\domain\entity\GuestAccount;

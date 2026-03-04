@@ -1,6 +1,6 @@
 <?php
 
-namespace app\application\commands;
+namespace app\infrastructure\cli\commands;
 
 use yii\console\Controller;
 

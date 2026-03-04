@@ -1,6 +1,6 @@
 <?php
 
-namespace app\infrastructure\repository;
+namespace app\infrastructure\doctrine\repository;
 
 class GuestRepository
 {
